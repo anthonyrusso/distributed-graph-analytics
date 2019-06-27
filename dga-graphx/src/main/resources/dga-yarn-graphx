@@ -8,15 +8,15 @@ done
 echo "JARS: ${JARS}"
 
 T="$(date +%s)"
-spark2-submit \
+spark-submit \
 --master yarn \
 --deploy-mode cluster \
---name GraphX \
+--name IPDeviceGraph \
 --class com.soteradefense.dga.graphx.DGARunner \
---executor-cores 1 \
---num-executors 21 \
---executor-memory 32G \
---driver-memory 20G \
+--executor-cores 2 \
+--num-executors 2 \
+--executor-memory 2G \
+--driver-memory 2G \
 --jars ${JARS} \
 --files "conf/application.conf,conf/log4j.properties" \
 lib/dga-graphx-0.1.jar "$@"
