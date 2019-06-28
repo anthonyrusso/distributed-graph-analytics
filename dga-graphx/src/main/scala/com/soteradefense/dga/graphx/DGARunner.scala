@@ -21,7 +21,7 @@ import java.util.Date
 
 import com.soteradefense.dga.graphx.config.Config
 import com.soteradefense.dga.graphx.harness.Harness
-import com.soteradefense.dga.graphx.hbse.HDFSHBSERunner
+// import com.soteradefense.dga.graphx.hbse.HDFSHBSERunner
 import com.soteradefense.dga.graphx.io.formats.EdgeInputFormat
 import com.soteradefense.dga.graphx.lc.HDFSLCRunner
 import com.soteradefense.dga.graphx.louvain.HDFSLouvainRunner
@@ -96,8 +96,8 @@ object DGARunner {
     analytic match {
       case WeaklyConnectedComponents | WeaklyConnectedComponentsGraphX =>
         runner = new HDFSWCCRunner(outputPath, commandLineConfig.edgeDelimiter)
-      case HighBetweennessSetExtraction =>
-        runner = new HDFSHBSERunner(outputPath, commandLineConfig.edgeDelimiter)
+//      case HighBetweennessSetExtraction =>
+//        runner = new HDFSHBSERunner(outputPath, commandLineConfig.edgeDelimiter)
       case LouvainModularity =>
         val minProgress = commandLineConfig.customArguments.getOrElse(MinProgressConfiguration, MinProgressDefaultConfiguration).toInt
         val progressCounter = commandLineConfig.customArguments.getOrElse(ProgressCounterConfiguration, ProgressCounterDefaultConfiguration).toInt
