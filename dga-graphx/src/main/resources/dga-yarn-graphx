@@ -1,25 +1,17 @@
 #! /bin/bash
 
-for i in `ls -d ./lib/*`;
-do
-    export JARS="$JARS,$i"
-done
-
-echo "JARS: ${JARS}"
-
 T="$(date +%s)"
-spark2-submit \
+spark-submit \
 --master yarn \
 --deploy-mode cluster \
---name GraphX \
+--name IPDeviceGraph \
 --class com.soteradefense.dga.graphx.DGARunner \
---executor-cores 1 \
---num-executors 21 \
---executor-memory 32G \
---driver-memory 20G \
---jars ${JARS} \
+--executor-cores 2 \
+--num-executors 2 \
+--executor-memory 2G \
+--driver-memory 2G \
 --files "conf/application.conf,conf/log4j.properties" \
-lib/dga-graphx-0.1.jar "$@"
+libs/dga-graphx-0.1-all.jar "$@"
 
 T="$(($(date +%s)-T))"
 echo "Time in seconds: ${T}"
