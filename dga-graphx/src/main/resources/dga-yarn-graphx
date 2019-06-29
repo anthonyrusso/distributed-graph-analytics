@@ -11,7 +11,7 @@ spark-submit \
 --executor-memory 2G \
 --driver-memory 2G \
 --files "conf/application.conf,conf/log4j.properties" \
-libs/dga-graphx-0.1-all.jar "$@"
+lib/dga-graphx-0.1-all.jar "$@"
 
 T="$(($(date +%s)-T))"
 echo "Time in seconds: ${T}"
