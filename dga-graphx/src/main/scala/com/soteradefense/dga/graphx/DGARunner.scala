@@ -79,7 +79,7 @@ object DGARunner {
     val sparkContext = new SparkContext(sparkConf)
     val parallelism = Integer.parseInt(commandLineConfig.customArguments.getOrElse(ParallelismConfiguration, applicationConfig.getString("parallelism")))
     var inputFormat: EdgeInputFormat = null
-    val hdfsUrl = applicationConfig.getString("hdfs.url")
+    val hdfsUrl = "" // applicationConfig.getString("hdfs.url")
     val inputPath = hdfsUrl + commandLineConfig.inputPath
     var outputPath = hdfsUrl + commandLineConfig.outputPath
     outputPath = if (outputPath.endsWith("/")) outputPath else outputPath + "/"
